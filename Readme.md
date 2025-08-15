@@ -1,9 +1,12 @@
 # Free Analytics.js
 
-A free version of segment.io for anyone who is not using any of the fancy data warehouse features that twilio tries to sell you.  There are two pieces of segment that are really powerful.
+A free version of the tag loader portion of segment.io for anyone who is not using any of the fancy data warehouse features that twilio tries to sell you.  There are two pieces of segment that are really powerful.
 
 1) This frontend library
 2) A backend library.  -- this repository is not a replacement for the backend library.
+
+*caveats* 
+The last update of [analytics.js](https://github.com/segmentio/analytics.js/) was 10 years ago, so some loaders might work, others might not.  I noticed that it was not using GA 4.  This means it likely will need some community help to get fully formed.
 
 ## Background
 I met the segment.io guys at a rooftop party at SXSW many years ago before they did YC.  They made good money selling Segment.io to Twilio.  Their code hasn't been maintained recently, but was licensed with a MIT license.  This is within the licensed use of analytics.js.
