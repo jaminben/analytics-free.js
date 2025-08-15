@@ -13,7 +13,9 @@ I met the segment.io guys at a rooftop party at SXSW many years ago before they 
 
 
 ## Porting instructions.
-Look at your network tab for requests to
+As an existing customer of segment.io, who is only using segment.js on the frontend.  Here's how you can migrate away from the segment coupled analytics.js.
+
+1) Look at your network tab for requests to
 
 `https://cdn.segment.com/v1/projects/{PROJECT_ID}/settings`
 
@@ -30,7 +32,7 @@ Grab a copy of this code.  This is basically the configuration being shipped to 
 
 Pull out everything inside of integrations.  The basic API for segment.io hasn't changed since the mid 2010s.
 
-Now to setup your analytics, just call:
+2) Now to setup your analytics, just call:
 ```
 var analytics = require('analytics.js')();
 
@@ -46,7 +48,7 @@ analytics.init({
         
 ```
 
-To embed everything onto the page there are a few tweaks to the loader necessary if you want it fully asnyc:
+3) To embed everything onto the page there are a few tweaks to the loader necessary if you want it fully asnyc:
 
 ```
   !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware", "init"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;
