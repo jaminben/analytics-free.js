@@ -1,3 +1,8 @@
+if (Array.isArray(window.analytics)) {
+  // window.analytics is an array
+  window.__analytics_queue = window.analytics;
+}
+
 (function umd(require){
   if (typeof exports === 'object') {
     module.exports = require('1');
@@ -20418,3 +20423,12 @@ module.exports = {
 }
 ;
 }, {}]}, {}, {"1":""}));
+
+
+/* Added to process calls that were made before analytics.js was loaded */
+if(window.__analytics_queue){
+  window.__analytics_queue.forEach(function(queuedCall){
+    analytics[queuedCall[0]].apply(self, queuedCall.slice(1));
+  });
+  window.__analytics_queue = [];
+}

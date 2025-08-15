@@ -1,5 +1,66 @@
-⚠️ Be sure to check out the next generation of analytics.js! https://github.com/segmentio/analytics-next 🎉 
-If you have an existing JavaScript source with Segment, you can enable Analytics Next in the settings of the source.
+# Free Analytics.js
+
+A free version of segment.io for anyone who is not using any of the fancy data warehouse features that twilio tries to sell you.  There are two pieces of segment that are really powerful.
+
+1) This frontend library
+2) A backend library.  -- this repository is not a replacement for the backend library.
+
+## Background
+I met the segment.io guys at a rooftop party at SXSW many years ago before they did YC.  They made good money selling Segment.io to Twilio.  Their code hasn't been maintained recently, but was licensed with a MIT license.  This is within the licensed use of analytics.js.
+
+
+## Porting instructions.
+Look at your network tab for requests to
+
+`https://cdn.segment.com/v1/projects/{PROJECT_ID}/settings`
+
+Grab a copy of this code.  This is basically the configuration being shipped to analytics.js.  It will look something like:
+
+```
+{
+    "_lastModified": "2025-08-01T10:04:22.245Z",
+    "integrations": {
+        "Visual Website Optimizer": {
+           ....
+        },
+```
+
+Pull out everything inside of integrations.  The basic API for segment.io hasn't changed since the mid 2010s.
+
+Now to setup your analytics, just call:
+```
+var analytics = require('analytics.js')();
+
+// Add your custom integration if needed
+analytics.addIntegration(YourCustomIntegration);
+
+// Initialize
+analytics.init({
+   ... 
+        "Visual Website Optimizer": {
+   ...
+        });
+        
+```
+
+To embed everything onto the page there are a few tweaks to the loader necessary if you want it fully asnyc:
+
+```
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware", "init"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;
+t.src="https://URL_TO_ANALYTICS/analytics.min.js";
+var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};
+  ;analytics.SNIPPET_VERSION="Analytics-free.js-0.1";
+
+  ... 
+
+  analytics.init({...});
+  analytics.load();
+```
+
+
+
+
+
 
 # Analytics.js
 
