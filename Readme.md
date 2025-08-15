@@ -6,7 +6,7 @@ A free version of the tag loader portion of segment.io for anyone who is not usi
 2) A backend library.  -- this repository is not a replacement for the backend library.
 
 *caveats* 
-The last update of [analytics.js](https://github.com/segmentio/analytics.js/) was 10 years ago, so some loaders might work, others might not.  I noticed that it was not using GA 4.  This means it likely will need some community help to get fully formed.
+The last update of [analytics.js](https://github.com/segmentio/analytics.js/) was 10 years ago, so some loaders might work, others might not.  I noticed that it was not using GA 4.  This means it likely will need some community help to get fully formed.  I remember they once had a bunch of nice opensource plugins for maintaining integration in a repository.  I can't find these. 
 
 ## Background
 I met the segment.io guys at a rooftop party at SXSW many years ago before they did YC.  They made good money selling Segment.io to Twilio.  Their code hasn't been maintained recently, but was licensed with a MIT license.  This is within the licensed use of analytics.js.
@@ -137,8 +137,8 @@ If you're looking to produce a custom build of Analytics.js with just the plugin
 
 The core logic of analytics.js is broken out into individual repositories:
 
-- To report an issue with analytics.js itself, head over to [analytics.js-core][], where the core analytics.js logic is maintained.
-- To report an issue with an integration plugin. head over to the [analytics.js-integrations][] organization, where we keep each integration plugin in its own repository.
+- To report an issue with analytics.js itself, head over to [analytics.js-core](https://github.com/segmentio/analytics.js-core), where the core analytics.js logic is maintained.
+- To report an issue with an integration plugin. head over to the [analytics.js-integrations](https://github.com/segmentio/analytics.js-integration) organization, where we keep each integration plugin in its own repository.
 - **To build a custom integration plugin for analytics.js, check out the [wiki][]. To distribute your plugin as a component of an integration in our [catalog][], check out our [partner docs].**
 
 If you're not sure where to open an issue, feel free to open an issue against this repository or [contact us](https://segment.com/contact) and we'll help point you in the right direction.
