@@ -9258,7 +9258,7 @@ var umd = typeof window.define === 'function' && window.define.amd;
  * Source.
  */
 
-var src = '//d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.1.0-min.js';
+var src = '//cdn.amplitude.com/libs/amplitude-5.2.2-min.gz.js';
 
 /**
  * Expose `Amplitude` integration.
